@@ -153,7 +153,7 @@ h3 { font-size: 20px; line-height: 1.15; }
 .direct-url { color: var(--muted); font-size: 14px; overflow-wrap: anywhere; }
 .direct-url a { color: var(--primary); font-weight: 700; text-decoration: underline; }
 .calendly-section { padding-bottom: clamp(80px, 10vw, 130px); }
-.calendly-inline-widget { width: 100%; background: var(--white); }
+.calendly-inline-widget { width: 100%; max-width: 100%; background: var(--white); }
 .legal-page { padding-block: clamp(80px, 11vw, 145px); }
 .legal-page h1 { color: var(--ink); font-size: clamp(3rem, 6vw, 5.6rem); }
 .legal-page h2 { margin: 34px 0 10px; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.6rem, 2.6vw, 2.4rem); font-weight: 400; letter-spacing: -.03em; }
@@ -176,6 +176,7 @@ h3 { font-size: 20px; line-height: 1.15; }
 .contact-panel { align-self: stretch; display: grid; align-content: center; gap: 18px; padding: clamp(28px, 4vw, 42px); background: var(--white); color: var(--ink); }
 .contact-panel h3 { margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(2rem, 3vw, 3rem); font-weight: 400; letter-spacing: -.035em; line-height: 1; }
 .contact-panel p { max-width: 430px; margin: 0; color: var(--muted); }
+.home-calendly-panel { grid-column: 1 / -1; overflow: hidden; background: var(--white); color: var(--ink); border: 1px solid oklch(1 0 0 / .18); box-shadow: 0 24px 50px oklch(0.04 0.01 262 / .26); }
 .contact-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
 .contact-actions .button span { color: inherit; opacity: .75; font-size: 11px; }
 .contact-actions-compact { margin-top: 24px; }
@@ -303,6 +304,9 @@ body::before { content: ''; position: fixed; inset: 0; z-index: -10; pointer-eve
     width: 30px;
     height: 30px;
   }
+  .home-calendly-panel {
+    margin-top: -8px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -426,5 +430,9 @@ body::before { content: ''; position: fixed; inset: 0; z-index: -10; pointer-eve
     min-width: 0;
     gap: 6px;
     padding-inline: 8px;
+  }
+  .home-calendly-panel .calendly-inline-widget,
+  .calendly-section .calendly-inline-widget {
+    height: 760px !important;
   }
 }

@@ -198,10 +198,10 @@ export function CalendlyInline() {
       <div
         className="calendly-inline-widget"
         data-url={calendlyUrl}
-        style={{ minWidth: 320, height: 700 }}
+        style={{ minWidth: 0, height: 700 }}
         aria-label="Calendly booking calendar for Bobby Pickel"
       />
-      <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" />
+      <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="afterInteractive" />
     </>
   );
 }

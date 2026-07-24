@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowIcon, BrandMark, CalendarIcon, ContactActions, HouseLineArt, PhoneIcon, PointerCardMotion, SiteFooter, SiteHeader, StickyContactBar } from "./components";
+import { ArrowIcon, BrandMark, CalendarIcon, CalendlyInline, ContactActions, HouseLineArt, PhoneIcon, PointerCardMotion, SiteFooter, SiteHeader, StickyContactBar } from "./components";
 import { articles, bobbyPhoneHref, calendlyUrl, featuredListing, listingImage, listingPhotos } from "./site-data";
 
 const moments = [
@@ -225,6 +225,9 @@ export default function Home() {
             <h3>Two clean ways to reach him.</h3>
             <p>Book a call when you want a set time. Call or text when the question is simple and you just need Bobby directly.</p>
             <ContactActions />
+          </div>
+          <div className="home-calendly-panel" aria-label="Book a call with Bobby on this page">
+            <CalendlyInline />
           </div>
         </div>
       </section>
