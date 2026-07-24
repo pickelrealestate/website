@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { BobbyPortrait, CalendlyInline, ContactActions, SiteFooter, SiteHeader, StickyContactBar } from "../components";
-import { bobbyPhoneDisplay, calendlyCleanUrl, facebookUrl, instagramUrl } from "../site-data";
+import { bobbyPhoneDisplay, calendlyCleanUrl } from "../site-data";
 
 export const metadata: Metadata = {
   title: "Contact Bobby Pickel | Pickel Sells ATL",
@@ -20,10 +20,6 @@ export default function ContactPage() {
           <ContactActions compact />
           <p className="direct-url">Direct booking link: <a href={calendlyCleanUrl}>{calendlyCleanUrl}</a></p>
           <p className="direct-url">Call or text Bobby: <strong>{bobbyPhoneDisplay}</strong></p>
-          <div className="social-row" aria-label="Bobby's social profiles">
-            <a href={instagramUrl} target="_blank" rel="noreferrer">Instagram</a>
-            <a href={facebookUrl} target="_blank" rel="noreferrer">Facebook</a>
-          </div>
         </div>
         <BobbyPortrait />
       </section>

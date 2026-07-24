@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BrandMark, ContactActions, HouseLineArt, PointerCardMotion, SiteFooter, SiteHeader, StickyContactBar } from "./components";
+import { ArrowIcon, BrandMark, CalendarIcon, ContactActions, HouseLineArt, PhoneIcon, PointerCardMotion, SiteFooter, SiteHeader, StickyContactBar } from "./components";
 import { articles, bobbyPhoneHref, calendlyUrl, featuredListing, listingImage, listingPhotos } from "./site-data";
 
 const moments = [
@@ -51,8 +51,8 @@ export default function Home() {
           <h1 id="hero-heading">Buy or sell a home with someone who knows the way home.</h1>
           <p className="hero-lede">Bobby Pickel brings a steady hand, local perspective, and a real path to the next step, whether that means a private showing, a buyer consult, or a plan to sell well.</p>
           <div className="hero-actions">
-            <a className="button button-accent" href={calendlyUrl} target="_blank" rel="noreferrer">Book a call <span aria-hidden="true">↗</span></a>
-            <a className="text-link text-link-light" href={bobbyPhoneHref}>Call/Text Bobby <span aria-hidden="true">↗</span></a>
+            <a className="button button-accent" href={calendlyUrl} target="_blank" rel="noreferrer"><CalendarIcon /> Book a call <ArrowIcon /></a>
+            <a className="text-link text-link-light" href={bobbyPhoneHref}><PhoneIcon /> Call/Text Bobby <ArrowIcon /></a>
           </div>
           <div className="hero-proof" aria-label="Bobby's approach">
             <span>Buy with a plan</span><span>Sell with clarity</span><span>Book in one step</span>
@@ -67,8 +67,8 @@ export default function Home() {
           <h2 id="intro-heading">The right move starts with the right person.</h2>
           <p className="lead-copy">Real estate can feel loud. Bobby keeps it clear: listen first, know the details, and help you make the decision that fits your life—not someone else’s timeline.</p>
           <div className="button-row">
-            <a className="text-link" href="#about">Get to know Bobby <span aria-hidden="true">↗</span></a>
-            <Link className="text-link" href="/sell-your-home">Sell your home <span aria-hidden="true">↗</span></Link>
+            <a className="text-link" href="#about"><ArrowIcon /> Get to know Bobby</a>
+            <Link className="text-link" href="/sell-your-home"><ArrowIcon /> Sell your home</Link>
           </div>
         </div>
       </section>
@@ -89,15 +89,15 @@ export default function Home() {
           <div className="path-grid">
             <article className="path-card path-buy">
               <HouseLineArt className="card-house-art" />
-              <span className="path-number">01</span><h3>Buying in Atlanta</h3><p>Book a buyer consult and narrow the homes, neighborhoods, and timing that fit your next move.</p><span className="path-arrow" aria-hidden="true">↗</span>
+              <span className="path-number">01</span><h3>Buying in Atlanta</h3><p>Book a buyer consult and narrow the homes, neighborhoods, and timing that fit your next move.</p><span className="path-arrow" aria-hidden="true"><ArrowIcon /></span>
             </article>
             <article className="path-card path-sell" id="sell">
               <HouseLineArt className="card-house-art" />
-              <span className="path-number">02</span><h3>Selling with clarity</h3><p>Book a strategy call, understand your options, and move forward with a thoughtful pricing and prep plan.</p><span className="path-arrow" aria-hidden="true">↗</span>
+              <span className="path-number">02</span><h3>Selling with clarity</h3><p>Book a strategy call, understand your options, and move forward with a thoughtful pricing and prep plan.</p><span className="path-arrow" aria-hidden="true"><ArrowIcon /></span>
             </article>
             <Link className="path-card path-watch" href="/listings">
               <HouseLineArt className="card-house-art" />
-              <span className="path-number">03</span><h3>Love this listing?</h3><p>See the home details, then request a private tour while it is still fresh on your mind.</p><span className="path-arrow" aria-hidden="true">↗</span>
+              <span className="path-number">03</span><h3>Love this listing?</h3><p>See the home details, then request a private tour while it is still fresh on your mind.</p><span className="path-arrow" aria-hidden="true"><ArrowIcon /></span>
             </Link>
           </div>
         </div>
@@ -109,8 +109,8 @@ export default function Home() {
           <h2 id="listing-heading">Space to spread out.<br /><em>Room to grow into.</em></h2>
           <p>{featuredListing.summary}</p>
           <div className="button-row">
-            <a className="button button-dark" href={calendlyUrl} target="_blank" rel="noreferrer">Book a private tour <span aria-hidden="true">↗</span></a>
-            <a className="text-link" href={bobbyPhoneHref}>Call/Text Bobby <span aria-hidden="true">↗</span></a>
+            <a className="button button-dark" href={calendlyUrl} target="_blank" rel="noreferrer"><CalendarIcon /> Book a private tour <ArrowIcon /></a>
+            <a className="text-link" href={bobbyPhoneHref}><PhoneIcon /> Call/Text Bobby <ArrowIcon /></a>
           </div>
         </div>
         <div className="listing-aside">
@@ -189,7 +189,7 @@ export default function Home() {
       <section className="articles-preview section shell reveal-block" aria-labelledby="articles-heading">
         <div className="section-heading-row">
           <div><p className="eyebrow">Atlanta real estate answers</p><h2 id="articles-heading">Read before you make the move.</h2></div>
-          <Link className="text-link" href="/articles">All articles <span aria-hidden="true">↗</span></Link>
+          <Link className="text-link" href="/articles"><ArrowIcon /> All articles</Link>
         </div>
         <div className="article-grid">
           {articles.map((article) => (

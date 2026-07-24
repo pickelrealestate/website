@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Script from "next/script";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { bobbyPhoneDisplay, bobbyPhoneHref, calendlyUrl, facebookUrl, instagramUrl } from "./site-data";
 
 export function BrandMark() {
@@ -28,6 +29,66 @@ export function HouseLineArt({ className = "" }: { className?: string }) {
   );
 }
 
+function IconBase({ children, label }: { children: ReactNode; label: string }) {
+  return (
+    <svg className="ui-icon" viewBox="0 0 24 24" aria-label={label} aria-hidden="true" focusable="false">
+      {children}
+    </svg>
+  );
+}
+
+export function CalendarIcon() {
+  return (
+    <IconBase label="Calendar">
+      <path d="M7 3v3M17 3v3M4.5 9.5h15M6.5 5h11A2.5 2.5 0 0 1 20 7.5v10A2.5 2.5 0 0 1 17.5 20h-11A2.5 2.5 0 0 1 4 17.5v-10A2.5 2.5 0 0 1 6.5 5Z" />
+      <path d="M8 13h3M8 16h6" />
+    </IconBase>
+  );
+}
+
+export function PhoneIcon() {
+  return (
+    <IconBase label="Phone">
+      <path d="M7.2 4.4 9.4 4c.7-.1 1.4.3 1.6 1l.8 2.2c.2.6 0 1.2-.5 1.6l-1.1.9c.9 1.8 2.3 3.2 4.1 4.1l.9-1.1c.4-.5 1-.7 1.6-.5l2.2.8c.7.2 1.1.9 1 1.6l-.4 2.2c-.1.7-.7 1.2-1.5 1.2C10.3 18 6 13.7 6 5.9c0-.8.5-1.4 1.2-1.5Z" />
+    </IconBase>
+  );
+}
+
+export function ArrowIcon() {
+  return (
+    <IconBase label="Open">
+      <path d="M7 17 17 7M9 7h8v8" />
+    </IconBase>
+  );
+}
+
+export function InstagramIcon() {
+  return (
+    <IconBase label="Instagram">
+      <rect x="4" y="4" width="16" height="16" rx="5" />
+      <circle cx="12" cy="12" r="3.2" />
+      <path d="M16.8 7.2h.01" />
+    </IconBase>
+  );
+}
+
+export function FacebookIcon() {
+  return (
+    <IconBase label="Facebook">
+      <path d="M14 8h2V4h-2.7C10.9 4 10 5.5 10 7.6V10H8v4h2v6h4v-6h2.4l.6-4h-3V8.7c0-.5.2-.7.7-.7Z" />
+    </IconBase>
+  );
+}
+
+export function HomeIcon() {
+  return (
+    <IconBase label="Home">
+      <path d="m4 11 8-7 8 7" />
+      <path d="M6.5 10.5V20h11v-9.5M10 20v-5h4v5" />
+    </IconBase>
+  );
+}
+
 export function SiteHeader({ dark = false }: { dark?: boolean }) {
   return (
     <header className={`site-header ${dark ? "site-header-dark" : ""}`} aria-label="Primary navigation">
@@ -42,10 +103,7 @@ export function SiteHeader({ dark = false }: { dark?: boolean }) {
         <Link href="/contact">Contact</Link>
         <Link href="/articles">Articles</Link>
       </nav>
-      <div className="header-socials" aria-label="Social links">
-        <a href={instagramUrl} target="_blank" rel="noreferrer">Instagram</a>
-        <a href={facebookUrl} target="_blank" rel="noreferrer">Facebook</a>
-      </div>
+      <span className="header-spacer" aria-hidden="true" />
     </header>
   );
 }
@@ -57,12 +115,12 @@ export function SiteFooter() {
         <Link className="wordmark" href="/"><BrandMark /><span>Pickel Sells <b>ATL</b></span></Link>
         <p>Atlanta real estate, rooted in trust.</p>
         <div className="footer-links">
-          <a className="text-link" href={instagramUrl} target="_blank" rel="noreferrer">Instagram</a>
-          <a className="text-link" href={facebookUrl} target="_blank" rel="noreferrer">Facebook</a>
-          <a className="text-link" href={bobbyPhoneHref}>Call/Text {bobbyPhoneDisplay}</a>
-          <Link className="text-link" href="/privacy-policy">Privacy</Link>
-          <Link className="text-link" href="/terms-of-service">Terms</Link>
-          <Link className="text-link" href="/cookies">Cookies</Link>
+          <a className="text-link social-link" href={instagramUrl} target="_blank" rel="noreferrer"><InstagramIcon /> Instagram</a>
+          <a className="text-link social-link" href={facebookUrl} target="_blank" rel="noreferrer"><FacebookIcon /> Facebook</a>
+          <a className="text-link" href={bobbyPhoneHref}><PhoneIcon /> Call/Text {bobbyPhoneDisplay}</a>
+          <Link className="text-link" href="/privacy-policy"><HomeIcon /> Privacy</Link>
+          <Link className="text-link" href="/terms-of-service"><HomeIcon /> Terms</Link>
+          <Link className="text-link" href="/cookies"><HomeIcon /> Cookies</Link>
         </div>
       </div>
     </footer>
@@ -72,8 +130,8 @@ export function SiteFooter() {
 export function ContactActions({ compact = false }: { compact?: boolean }) {
   return (
     <div className={`contact-actions ${compact ? "contact-actions-compact" : ""}`} aria-label="Contact Bobby">
-      <a className="button button-accent" href={calendlyUrl} target="_blank" rel="noreferrer">Book a call <span aria-hidden="true">↗</span></a>
-      <a className="button button-dark" href={bobbyPhoneHref}>Call/Text Bobby <span>{bobbyPhoneDisplay}</span></a>
+      <a className="button button-accent" href={calendlyUrl} target="_blank" rel="noreferrer"><CalendarIcon /> Book a call <ArrowIcon /></a>
+      <a className="button button-dark" href={bobbyPhoneHref}><PhoneIcon /> Call/Text Bobby <span>{bobbyPhoneDisplay}</span></a>
     </div>
   );
 }
@@ -81,8 +139,8 @@ export function ContactActions({ compact = false }: { compact?: boolean }) {
 export function StickyContactBar() {
   return (
     <div className="sticky-contact-bar" aria-label="Quick contact actions">
-      <a className="sticky-action sticky-book" href={calendlyUrl} target="_blank" rel="noreferrer">Book a Call</a>
-      <a className="sticky-action sticky-call" href={bobbyPhoneHref}>Call/Text Bobby</a>
+      <a className="sticky-action sticky-book" href={calendlyUrl} target="_blank" rel="noreferrer"><CalendarIcon /> Book a Call</a>
+      <a className="sticky-action sticky-call" href={bobbyPhoneHref}><PhoneIcon /> Call/Text Bobby</a>
     </div>
   );
 }

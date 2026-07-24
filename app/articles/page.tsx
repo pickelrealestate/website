@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ContactActions, SiteFooter, SiteHeader, StickyContactBar } from "../components";
+import { ArrowIcon, ContactActions, PhoneIcon, SiteFooter, SiteHeader, StickyContactBar } from "../components";
 import { articles, bobbyPhoneHref, calendlyUrl } from "../site-data";
 
 export const metadata: Metadata = {
@@ -44,8 +44,8 @@ export default function ArticlesPage() {
             <p className="lead-copy">{article.excerpt}</p>
             {articleBodies[article.slug].map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             <div className="button-row">
-              <a className="text-link" href={calendlyUrl} target="_blank" rel="noreferrer">Book a call about this <span aria-hidden="true">↗</span></a>
-              <a className="text-link" href={bobbyPhoneHref}>Call/Text Bobby <span aria-hidden="true">↗</span></a>
+              <a className="text-link" href={calendlyUrl} target="_blank" rel="noreferrer"><ArrowIcon /> Book a call about this</a>
+              <a className="text-link" href={bobbyPhoneHref}><PhoneIcon /> Call/Text Bobby <ArrowIcon /></a>
             </div>
           </article>
         ))}

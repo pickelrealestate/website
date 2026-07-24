@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ContactActions, SiteFooter, SiteHeader, StickyContactBar } from "../components";
+import { ArrowIcon, CalendarIcon, ContactActions, PhoneIcon, SiteFooter, SiteHeader, StickyContactBar } from "../components";
 import { bobbyPhoneHref, calendlyUrl, featuredListing, listingImage, listingPhotos } from "../site-data";
 
 export const metadata: Metadata = {
@@ -19,8 +19,8 @@ export default function ListingsPage() {
           <h1>{featuredListing.title}</h1>
           <p className="hero-lede page-lede">{featuredListing.summary}</p>
           <div className="button-row">
-            <a className="button button-accent" href={calendlyUrl} target="_blank" rel="noreferrer">Book a private tour <span aria-hidden="true">↗</span></a>
-            <a className="text-link" href={bobbyPhoneHref}>Call/Text Bobby <span aria-hidden="true">↗</span></a>
+            <a className="button button-accent" href={calendlyUrl} target="_blank" rel="noreferrer"><CalendarIcon /> Book a private tour <ArrowIcon /></a>
+            <a className="text-link" href={bobbyPhoneHref}><PhoneIcon /> Call/Text Bobby <ArrowIcon /></a>
           </div>
         </div>
         <figure className="page-image">
