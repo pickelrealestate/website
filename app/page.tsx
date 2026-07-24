@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BrandMark, ContactActions, SiteFooter, SiteHeader, StickyContactBar } from "./components";
+import { BrandMark, ContactActions, HouseLineArt, PointerCardMotion, SiteFooter, SiteHeader, StickyContactBar } from "./components";
 import { articles, bobbyPhoneHref, calendlyUrl, featuredListing, listingImage, listingPhotos } from "./site-data";
 
 const moments = [
@@ -28,6 +28,7 @@ export default function Home() {
       <section className="hero" id="top" aria-labelledby="hero-heading">
         <div className="hero-photo" aria-hidden="true" />
         <div className="hero-grid" aria-hidden="true" />
+        <HouseLineArt className="hero-house-art" />
         <div className="hero-copy shell" id="main-content">
           <div className="hero-persona">
             <div className="hero-avatar-wrap">
@@ -60,7 +61,7 @@ export default function Home() {
         <div className="hero-note" aria-hidden="true"><span>01</span><span>Rooted in Atlanta</span></div>
       </section>
 
-      <section className="intro section shell" aria-labelledby="intro-heading">
+      <section className="intro section shell reveal-block" aria-labelledby="intro-heading">
         <div className="intro-aside"><span className="line" /><span>01 / The approach</span></div>
         <div className="intro-body">
           <h2 id="intro-heading">The right move starts with the right person.</h2>
@@ -72,14 +73,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="trust-strip shell" aria-label="How Bobby makes real estate easier">
+      <section className="trust-strip shell reveal-block" aria-label="How Bobby makes real estate easier">
         <div><strong>1</strong><span>call to get clear</span></div>
         <div><strong>3</strong><span>next-step paths: buy, sell, or tour</span></div>
         <div><strong>7</strong><span>bedroom featured home kept current</span></div>
         <div><strong>0</strong><span>pressure before you are ready</span></div>
       </section>
 
-      <section className="pathways section" id="buy" aria-labelledby="pathways-heading">
+      <section className="pathways section reveal-block" id="buy" aria-labelledby="pathways-heading">
         <div className="shell">
           <div className="section-heading-row">
             <div><p className="eyebrow">Make your move</p><h2 id="pathways-heading">Where are you headed?</h2></div>
@@ -87,19 +88,22 @@ export default function Home() {
           </div>
           <div className="path-grid">
             <article className="path-card path-buy">
+              <HouseLineArt className="card-house-art" />
               <span className="path-number">01</span><h3>Buying in Atlanta</h3><p>Book a buyer consult and narrow the homes, neighborhoods, and timing that fit your next move.</p><span className="path-arrow" aria-hidden="true">↗</span>
             </article>
             <article className="path-card path-sell" id="sell">
+              <HouseLineArt className="card-house-art" />
               <span className="path-number">02</span><h3>Selling with clarity</h3><p>Book a strategy call, understand your options, and move forward with a thoughtful pricing and prep plan.</p><span className="path-arrow" aria-hidden="true">↗</span>
             </article>
             <Link className="path-card path-watch" href="/listings">
+              <HouseLineArt className="card-house-art" />
               <span className="path-number">03</span><h3>Love this listing?</h3><p>See the home details, then request a private tour while it is still fresh on your mind.</p><span className="path-arrow" aria-hidden="true">↗</span>
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="listing section shell" id="listing" aria-labelledby="listing-heading">
+      <section className="listing section shell reveal-block" id="listing" aria-labelledby="listing-heading">
         <div className="listing-intro">
           <p className="eyebrow">Featured listing</p>
           <h2 id="listing-heading">Space to spread out.<br /><em>Room to grow into.</em></h2>
@@ -139,7 +143,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="videos section" id="videos" aria-labelledby="videos-heading">
+      <section className="videos section reveal-block" id="videos" aria-labelledby="videos-heading">
         <div className="shell">
           <div className="section-heading-row video-heading">
             <div><p className="eyebrow">A little perspective</p><h2 id="videos-heading">The feeling matters, too.</h2></div>
@@ -161,7 +165,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="about section shell" id="about" aria-labelledby="about-heading">
+      <section className="about section shell reveal-block" id="about" aria-labelledby="about-heading">
         <div className="about-panel" aria-label="Why people choose Bobby">
           <p className="eyebrow">Why people call Bobby</p>
           <ul className="about-points">
@@ -182,7 +186,7 @@ export default function Home() {
         <div className="about-copy"><p className="eyebrow">The person behind the process</p><h2 id="about-heading">A real estate relationship should feel like a relationship.</h2><p>Bobby believes the best work starts by being present: asking better questions, noticing what matters, and staying in the room when the details get complicated.</p><p>Whether you’re buying your first place, selling a home full of memories, or reaching out because this featured home caught your eye, you deserve guidance that feels direct, personal, and easy to trust.</p><ContactActions compact /></div>
       </section>
 
-      <section className="articles-preview section shell" aria-labelledby="articles-heading">
+      <section className="articles-preview section shell reveal-block" aria-labelledby="articles-heading">
         <div className="section-heading-row">
           <div><p className="eyebrow">Atlanta real estate answers</p><h2 id="articles-heading">Read before you make the move.</h2></div>
           <Link className="text-link" href="/articles">All articles <span aria-hidden="true">↗</span></Link>
@@ -198,7 +202,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="faq section shell" aria-labelledby="faq-heading">
+      <section className="faq section shell reveal-block" aria-labelledby="faq-heading">
         <div className="faq-intro"><p className="eyebrow">Good questions welcome</p><h2 id="faq-heading">Atlanta home buying, without the fog.</h2><p>Start with the questions people usually ask before they reach out.</p></div>
         <div className="faq-list">
           <details><summary>What should I do first if I want to buy a home in Atlanta?</summary><p>Start with a simple conversation about your timing, budget, preferred areas, and what you want daily life to feel like. Bobby can help you turn those priorities into a practical search plan before you spend weekends touring homes.</p></details>
@@ -208,7 +212,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="contact section" id="contact" aria-labelledby="contact-heading">
+      <section className="contact section reveal-block" id="contact" aria-labelledby="contact-heading">
         <div className="shell contact-grid">
           <div className="contact-copy"><p className="eyebrow eyebrow-light">Let’s make it simple</p><h2 id="contact-heading">Book a showing or strategy call with Bobby.</h2><p>Use Bobby’s calendar for a private tour, a buyer consult, or a seller strategy conversation. The goal is to help you get one clear next step on the calendar.</p><div className="contact-choices" aria-label="Booking options"><span>Private home tour</span><span>Buyer consult</span><span>Seller strategy call</span></div><div className="contact-note"><span className="contact-mark"><BrandMark /></span><span>Pickel Sells ATL<br /><small>Atlanta area real estate</small></span></div></div>
           <div className="contact-panel">
@@ -221,6 +225,7 @@ export default function Home() {
 
       <SiteFooter />
       <StickyContactBar />
+      <PointerCardMotion />
     </main>
   );
 }

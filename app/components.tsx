@@ -13,6 +13,21 @@ export function BrandMark() {
   );
 }
 
+export function HouseLineArt({ className = "" }: { className?: string }) {
+  return (
+    <svg className={`house-line-art ${className}`} viewBox="0 0 420 260" aria-hidden="true">
+      <path className="house-stroke house-roof" d="M34 156 210 40l176 116" />
+      <path className="house-stroke" d="M70 154v76h280v-76" />
+      <path className="house-stroke" d="M139 230v-78h62v78" />
+      <path className="house-stroke" d="M239 164h62v44h-62z" />
+      <path className="house-stroke house-ground" d="M25 232h370" />
+      <path className="house-stroke house-orbit" d="M314 76c31 14 52 39 52 68 0 54-70 98-156 98S54 198 54 144c0-27 17-51 45-69" />
+      <path className="house-stroke house-spark" d="M210 18v28M196 32h28" />
+      <path className="house-stroke house-spark house-spark-two" d="M352 112v22M341 123h22" />
+    </svg>
+  );
+}
+
 export function SiteHeader({ dark = false }: { dark?: boolean }) {
   return (
     <header className={`site-header ${dark ? "site-header-dark" : ""}`} aria-label="Primary navigation">
@@ -69,6 +84,22 @@ export function StickyContactBar() {
       <a className="sticky-action sticky-book" href={calendlyUrl} target="_blank" rel="noreferrer">Book a Call</a>
       <a className="sticky-action sticky-call" href={bobbyPhoneHref}>Call/Text Bobby</a>
     </div>
+  );
+}
+
+export function PointerCardMotion() {
+  return (
+    <Script id="pointer-card-motion" strategy="afterInteractive">
+      {`
+        document.querySelectorAll('.path-card, .article-card, .gallery-item, .video-card').forEach((card) => {
+          card.addEventListener('pointermove', (event) => {
+            const rect = card.getBoundingClientRect();
+            card.style.setProperty('--mx', (((event.clientX - rect.left) / rect.width) * 100).toFixed(2) + '%');
+            card.style.setProperty('--my', (((event.clientY - rect.top) / rect.height) * 100).toFixed(2) + '%');
+          });
+        });
+      `}
+    </Script>
   );
 }
 
