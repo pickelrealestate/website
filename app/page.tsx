@@ -7,14 +7,20 @@ const moments = [
   {
     title: "Real estate is like a tree",
     copy: "Trust, consistency, and patience are the roots.",
+    file: "Real estate is like a tree, everything starts with strong roots. Trust, consistency, and patienc.mp4",
+    poster: "/videos/posters/real-estate-roots.jpg",
   },
   {
     title: "Find the nest",
     copy: "Some people chase birdies. Bobby helps people find home.",
+    file: "Some people chase birdies. I help people find the nest..mp4",
+    poster: "/videos/posters/find-the-nest.jpg",
   },
   {
     title: "A great home is close",
     copy: "Inner peace is priceless. A smart move helps, too.",
+    file: "Inner peace is priceless, but a great home at a great price is pretty close. If you’re buying, s.mp4",
+    poster: "/videos/posters/great-home-close.jpg",
   },
 ];
 
@@ -153,8 +159,8 @@ export default function Home() {
             {moments.map((moment, index) => (
               <article className="video-card" key={moment.title}>
                 <div className="video-frame">
-                  <video controls preload="metadata" playsInline aria-label={`${moment.title} video from Bobby`}>
-                    <source src={`/videos/${["Real estate is like a tree, everything starts with strong roots. Trust, consistency, and patienc.mp4", "Some people chase birdies. I help people find the nest..mp4", "Inner peace is priceless, but a great home at a great price is pretty close. If you’re buying, s.mp4"][index]}`} type="video/mp4" />
+                  <video controls preload="metadata" playsInline poster={moment.poster} aria-label={`${moment.title} video from Bobby`}>
+                    <source src={`/videos/${moment.file}`} type="video/mp4" />
                   </video>
                   <span className="video-index">0{index + 1}</span>
                 </div>

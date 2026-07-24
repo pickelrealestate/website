@@ -90,6 +90,14 @@ export function HomeIcon() {
 }
 
 export function SiteHeader({ dark = false }: { dark?: boolean }) {
+  const navLinks = [
+    { href: "/", label: "Home Page" },
+    { href: "/listings", label: "Houses For Sale" },
+    { href: "/sell-your-home", label: "Sell Your Home" },
+    { href: "/contact", label: "Contact" },
+    { href: "/articles", label: "Articles" },
+  ];
+
   return (
     <header className={`site-header ${dark ? "site-header-dark" : ""}`} aria-label="Primary navigation">
       <Link className="wordmark" href="/" aria-label="Pickel Sells ATL home">
@@ -97,12 +105,20 @@ export function SiteHeader({ dark = false }: { dark?: boolean }) {
         <span>Pickel Sells <b>ATL</b></span>
       </Link>
       <nav className="desktop-nav" aria-label="Main menu">
-        <Link href="/">Home Page</Link>
-        <Link href="/listings">Houses For Sale</Link>
-        <Link href="/sell-your-home">Sell Your Home</Link>
-        <Link href="/contact">Contact</Link>
-        <Link href="/articles">Articles</Link>
+        {navLinks.map((link) => <Link href={link.href} key={link.href}>{link.label}</Link>)}
       </nav>
+      <details className="mobile-menu">
+        <summary aria-label="Open navigation menu">
+          <span />
+          <span />
+          <span />
+        </summary>
+        <nav aria-label="Mobile menu">
+          {navLinks.map((link) => <Link href={link.href} key={link.href}>{link.label}</Link>)}
+          <a href={calendlyUrl} target="_blank" rel="noreferrer"><CalendarIcon /> Book a Call</a>
+          <a href={bobbyPhoneHref}><PhoneIcon /> Call/Text Bobby</a>
+        </nav>
+      </details>
       <span className="header-spacer" aria-hidden="true" />
     </header>
   );
