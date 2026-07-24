@@ -2,7 +2,7 @@ import Image from "next/image";
 import Script from "next/script";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { bobbyPhoneDisplay, bobbyPhoneHref, calendlyUrl, facebookUrl, instagramUrl } from "./site-data";
+import { bobbyPhoneDisplay, bobbyPhoneHref, calendlyUrl, facebookUrl, instagramUrl, realscoutUrl } from "./site-data";
 
 export function BrandMark() {
   return (
@@ -117,6 +117,7 @@ export function SiteFooter() {
         <div className="footer-links">
           <a className="text-link social-link" href={instagramUrl} target="_blank" rel="noreferrer"><InstagramIcon /> Instagram</a>
           <a className="text-link social-link" href={facebookUrl} target="_blank" rel="noreferrer"><FacebookIcon /> Facebook</a>
+          <a className="text-link social-link" href={realscoutUrl} target="_blank" rel="noreferrer"><ArrowIcon /> RealScout</a>
           <a className="text-link" href={bobbyPhoneHref}><PhoneIcon /> Call/Text {bobbyPhoneDisplay}</a>
           <Link className="text-link" href="/privacy-policy"><HomeIcon /> Privacy</Link>
           <Link className="text-link" href="/terms-of-service"><HomeIcon /> Terms</Link>
