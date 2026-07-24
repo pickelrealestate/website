@@ -19,4 +19,18 @@ test.describe("WCAG 2.1 AA accessibility", () => {
     await expect(page.getByLabel("Your name")).toBeVisible();
     await expect(page.getByRole("button", { name: /Send a note to Bobby/ })).toBeVisible();
   });
+
+  test("hero portrait and listing gallery images load", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.getByAltText("Bobby Pickel smiling in a gray suit and patterned tie")).toBeVisible();
+    await page.locator("#listing").scrollIntoViewIfNeeded();
+
+    const galleryImages = page.locator(".gallery-item img");
+    await expect(galleryImages).toHaveCount(13);
+    await page.waitForFunction(() =>
+      Array.from(document.querySelectorAll<HTMLImageElement>(".gallery-item img")).every(
+        (image) => image.complete && image.naturalWidth > 0,
+      ),
+    );
+  });
 });

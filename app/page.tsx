@@ -3,36 +3,72 @@
 import { FormEvent, useState } from "react";
 import Image from "next/image";
 
-const listingFiles = [
-  "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat.jpg",
-  "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (1).jpg",
-  "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (2).jpg",
-  "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (3).jpg",
-  "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (4).jpg",
-  "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (5).jpg",
-  "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (6).jpg",
-  "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (7).jpg",
-  "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (8).jpg",
-  "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (9).jpg",
-  "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (10).jpg",
-  "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (11).jpg",
-  "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (12).jpg",
-];
-
-const imageAlt = [
-  "White brick Atlanta home surrounded by trees",
-  "Spacious bedroom with hardwood floors and a tree-lined view",
-  "Updated kitchen with gray cabinetry and a large island",
-  "Bright living room with a fireplace and wall of windows",
-  "Elegant dining room with hardwood floors and a modern chandelier",
-  "Large carpeted bedroom with multiple windows",
-  "Primary bathroom with double vanity and walk-in shower",
-  "Bathroom with soaking tub and forest view",
-  "Open bathroom vanity with warm wood accent wall",
-  "Bathroom with accessible grab bar and tub",
-  "Quiet bedroom with ceiling fan and wooded view",
-  "Sunlit room with hardwood floors and a ceiling fan",
-  "Wood deck overlooking a mature Atlanta tree canopy",
+const listingPhotos = [
+  {
+    file: "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat.jpg",
+    alt: "White brick Atlanta home surrounded by mature trees",
+    caption: "Front exterior",
+  },
+  {
+    file: "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (1).jpg",
+    alt: "Updated kitchen with gray cabinetry and a large island",
+    caption: "Chef-style kitchen",
+  },
+  {
+    file: "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (2).jpg",
+    alt: "Home theater or media room with hardwood floors",
+    caption: "Dedicated media room",
+  },
+  {
+    file: "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (3).jpg",
+    alt: "Bright living room with a fireplace and a wall of windows",
+    caption: "Open living room",
+  },
+  {
+    file: "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (4).jpg",
+    alt: "Elegant dining room with hardwood floors and a modern chandelier",
+    caption: "Formal dining space",
+  },
+  {
+    file: "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (5).jpg",
+    alt: "Large carpeted bedroom with multiple doors leading to the bath area",
+    caption: "Primary suite",
+  },
+  {
+    file: "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (6).jpg",
+    alt: "Primary bathroom with double vanity and warm wood accent wall",
+    caption: "Primary bath vanity",
+  },
+  {
+    file: "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (7).jpg",
+    alt: "Bathroom with soaking tub, large shower, and wooded view",
+    caption: "Spa-style bath",
+  },
+  {
+    file: "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (8).jpg",
+    alt: "Quiet bedroom with hardwood floors and wooded view",
+    caption: "Sunlit bedroom",
+  },
+  {
+    file: "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (9).jpg",
+    alt: "Bathroom with accessible grab bar and a full tub",
+    caption: "Secondary bathroom",
+  },
+  {
+    file: "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (10).jpg",
+    alt: "Spacious carpeted bedroom with vaulted ceiling and tree-lined view",
+    caption: "Guest bedroom",
+  },
+  {
+    file: "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (11).jpg",
+    alt: "Modern bathroom with double vanity and marble-look shower surround",
+    caption: "Updated full bath",
+  },
+  {
+    file: "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (12).jpg",
+    alt: "Wood deck overlooking a mature Atlanta tree canopy",
+    caption: "Back deck and trees",
+  },
 ];
 
 const moments = [
@@ -81,6 +117,23 @@ export default function Home() {
         <div className="hero-photo" aria-hidden="true" />
         <div className="hero-grid" aria-hidden="true" />
         <div className="hero-copy shell" id="main-content">
+          <div className="hero-persona">
+            <div className="hero-avatar-wrap">
+              <Image
+                src="/bobby.png"
+                alt="Bobby Pickel smiling in a gray suit and patterned tie"
+                className="hero-avatar"
+                width={1080}
+                height={1080}
+                priority
+                sizes="(max-width: 520px) 140px, 168px"
+              />
+            </div>
+            <div className="hero-persona-copy">
+              <span>Meet Bobby Pickel</span>
+              <p>Atlanta real estate guidance built on trust, patience, and real conversations.</p>
+            </div>
+          </div>
           <p className="eyebrow eyebrow-light"><span className="eyebrow-dot" /> Atlanta real estate, made personal</p>
           <h1 id="hero-heading">Buy or sell a home with someone who knows the way home.</h1>
           <p className="hero-lede">Bobby Pickel brings a steady hand, local perspective, and a real conversation to every Atlanta move.</p>
@@ -135,10 +188,16 @@ export default function Home() {
           <div><strong>7</strong><span>Bedrooms</span></div><div><strong>4</strong><span>Bathrooms</span></div><div><strong>4,300+</strong><span>Square feet</span></div>
         </div>
         <div className="gallery" aria-label="Featured home photo gallery">
-          {listingFiles.map((file, index) => (
-            <figure className={`gallery-item gallery-${index + 1}`} key={file}>
-              <Image src={`/images/listing/${encodeURIComponent(file)}`} alt={imageAlt[index]} fill priority={index === 0} sizes="(max-width: 520px) 100vw, (max-width: 860px) 50vw, 58vw" />
-              {index === 0 && <figcaption>Front exterior</figcaption>}
+          {listingPhotos.map((photo, index) => (
+            <figure className={`gallery-item gallery-${index + 1}`} key={photo.file}>
+              <Image
+                src={`/images/listing/${encodeURIComponent(photo.file)}`}
+                alt={photo.alt}
+                fill
+                priority={index < 3}
+                sizes="(max-width: 520px) 100vw, (max-width: 860px) 50vw, 58vw"
+              />
+              <figcaption>{photo.caption}</figcaption>
             </figure>
           ))}
         </div>
@@ -167,8 +226,24 @@ export default function Home() {
       </section>
 
       <section className="about section shell" id="about" aria-labelledby="about-heading">
-        <div className="about-photo"><Image src="/bobby.png" alt="Bobby Pickel smiling in a gray suit and patterned tie" width={1080} height={1080} sizes="(max-width: 860px) 100vw, 42vw" /></div>
-        <div className="about-copy"><p className="eyebrow">The person behind the process</p><h2 id="about-heading">A real estate relationship should feel like a relationship.</h2><p>Bobby believes the best work starts by being present: asking better questions, noticing what matters, and staying in the room when the details get complicated.</p><p>Whether you’re buying your first place, selling a home full of memories, or simply trying to understand the market, you deserve a guide who makes the process feel human.</p><a className="text-link" href="#contact">Meet Bobby in a conversation <span aria-hidden="true">↗</span></a></div>
+        <div className="about-panel" aria-label="Why people choose Bobby">
+          <p className="eyebrow">Why people call Bobby</p>
+          <ul className="about-points">
+            <li>
+              <strong>Clear next steps</strong>
+              <span>You’ll know what happens after the first call, after the first tour, and before the first offer.</span>
+            </li>
+            <li>
+              <strong>Local perspective</strong>
+              <span>Atlanta neighborhoods, daily routines, commute tradeoffs, and property details all stay part of the conversation.</span>
+            </li>
+            <li>
+              <strong>Real follow-through</strong>
+              <span>Buying or selling a home is personal. Bobby keeps the process steady when decisions start to feel big.</span>
+            </li>
+          </ul>
+        </div>
+        <div className="about-copy"><p className="eyebrow">The person behind the process</p><h2 id="about-heading">A real estate relationship should feel like a relationship.</h2><p>Bobby believes the best work starts by being present: asking better questions, noticing what matters, and staying in the room when the details get complicated.</p><p>Whether you’re buying your first place, selling a home full of memories, or reaching out because this featured home caught your eye, you deserve guidance that feels direct, personal, and easy to trust.</p><a className="text-link" href="#contact">Meet Bobby in a conversation <span aria-hidden="true">↗</span></a></div>
       </section>
 
       <section className="faq section shell" aria-labelledby="faq-heading">
