@@ -1,0 +1,26 @@
+import type { Metadata } from "next";
+import { SiteFooter, SiteHeader } from "../components";
+
+export const metadata: Metadata = { title: "Privacy Policy | Pickel Sells ATL", alternates: { canonical: "/privacy-policy" } };
+
+export default function PrivacyPolicyPage() {
+  return (
+    <main>
+      <SiteHeader dark />
+      <section className="legal-page shell">
+        <p className="eyebrow">Privacy Policy</p>
+        <h1>Privacy Policy</h1>
+        <p>Pickel Sells ATL uses information you choose to share to respond to real estate questions, schedule calls, and provide buyer or seller guidance.</p>
+        <h2>Information collected</h2>
+        <p>This may include your name, phone number, email address, preferred timing, real estate goals, and any context you submit through forms or booking tools.</p>
+        <h2>How information is used</h2>
+        <p>Information is used to follow up, schedule appointments, prepare for consultations, and improve the usefulness of this website.</p>
+        <h2>Third-party tools</h2>
+        <p>The site links to and embeds Calendly for scheduling. Calendly may process booking information according to its own privacy practices.</p>
+        <h2>Contact</h2>
+        <p>Use the contact page to ask questions about this policy or your submitted information.</p>
+      </section>
+      <SiteFooter />
+    </main>
+  );
+}
