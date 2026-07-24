@@ -20,22 +20,23 @@ export const metadata: Metadata = {
     images: [{ url: "/bobby.png", width: 1080, height: 1080, alt: "Bobby Pickel, Atlanta real estate" }],
   },
   twitter: { card: "summary_large_image", title: "Atlanta real estate, made personal | Pickel Sells ATL", description: "Buy or sell a home in Atlanta with Bobby Pickel.", images: ["/bobby.png"] },
-  icons: { icon: "/bobby.png", apple: "/bobby.png" },
+  icons: { icon: "/bobby.png", shortcut: "/bobby.png", apple: "/bobby.png" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "RealEstateAgent", "@id": `${siteUrl}/#agent`, name: "Bobby Pickel", url: siteUrl, image: `${siteUrl}/bobby.png`, description: "Atlanta-area real estate guidance for buyers, sellers, and private showings.", areaServed: { "@type": "City", name: "Atlanta", containedInPlace: { "@type": "State", name: "Georgia" } }, knowsAbout: ["Buying a home in Atlanta", "Selling a home in Atlanta", "Residential real estate", "Private home showings"], sameAs: ["https://calendly.com/pickelrealestate-proton/realestate"] },
+    { "@type": "RealEstateAgent", "@id": `${siteUrl}/#agent`, name: "Bobby Pickel", url: siteUrl, telephone: "+1-404-860-3152", image: `${siteUrl}/bobby.png`, description: "Atlanta-area real estate guidance for buyers, sellers, and private showings.", areaServed: { "@type": "City", name: "Atlanta", containedInPlace: { "@type": "State", name: "Georgia" } }, knowsAbout: ["Buying a home in Atlanta", "Selling a home in Atlanta", "Residential real estate", "Private home showings"], sameAs: ["https://calendly.com/pickelrealestate-proton/realestate", "https://www.instagram.com/pickelsellsatl/", "https://www.facebook.com/bobby.pickel.10"] },
     { "@type": "WebSite", "@id": `${siteUrl}/#website`, url: siteUrl, name: "Pickel Sells ATL", publisher: { "@id": `${siteUrl}/#agent` }, inLanguage: "en-US" },
     { "@type": "Service", "@id": `${siteUrl}/#buyer-seller-service`, name: "Atlanta buyer and seller real estate consultations", provider: { "@id": `${siteUrl}/#agent` }, areaServed: "Atlanta, Georgia", serviceType: "Residential real estate buyer consultations, seller strategy calls, and private tours", url: `${siteUrl}/contact` },
     { "@type": "Residence", "@id": `${siteUrl}/listings#featured-home`, name: "Featured Atlanta-area 7 bedroom home", numberOfRooms: 7, floorSize: { "@type": "QuantitativeValue", value: 4300, unitCode: "FTK" }, url: `${siteUrl}/listings`, image: `${siteUrl}/images/listing/${encodeURIComponent("Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat.jpg")}` },
     { "@type": "BreadcrumbList", itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
       { "@type": "ListItem", position: 2, name: "Listings", item: `${siteUrl}/listings` },
-      { "@type": "ListItem", position: 3, name: "Articles", item: `${siteUrl}/articles` },
-      { "@type": "ListItem", position: 4, name: "Contact", item: `${siteUrl}/contact` }
+      { "@type": "ListItem", position: 3, name: "Sell Your Home", item: `${siteUrl}/sell-your-home` },
+      { "@type": "ListItem", position: 4, name: "Articles", item: `${siteUrl}/articles` },
+      { "@type": "ListItem", position: 5, name: "Contact", item: `${siteUrl}/contact` }
     ] },
     { "@type": "FAQPage", mainEntity: [
       { "@type": "Question", name: "What should I do first if I want to buy a home in Atlanta?", acceptedAnswer: { "@type": "Answer", text: "Start with a simple conversation about your timing, budget, preferred areas, and what you want daily life to feel like. Bobby can help you turn those priorities into a practical search plan." } },

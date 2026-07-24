@@ -3,6 +3,16 @@ export const calendlyUrl =
 
 export const calendlyCleanUrl = "https://calendly.com/pickelrealestate-proton/realestate";
 
+export const bobbyPhoneDisplay = "404-860-3152";
+
+export const bobbyPhoneHref = "tel:+14048603152";
+
+export const bobbyTextHref = "sms:+14048603152";
+
+export const instagramUrl = "https://www.instagram.com/pickelsellsatl/";
+
+export const facebookUrl = "https://www.facebook.com/bobby.pickel.10";
+
 export const listingPhotos = [
   {
     file: "Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat.jpg",

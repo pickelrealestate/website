@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Script from "next/script";
 import Link from "next/link";
-import { calendlyUrl } from "./site-data";
+import { bobbyPhoneDisplay, bobbyPhoneHref, calendlyUrl, facebookUrl, instagramUrl } from "./site-data";
 
 export function BrandMark() {
   return (
@@ -21,13 +21,16 @@ export function SiteHeader({ dark = false }: { dark?: boolean }) {
         <span>Pickel Sells <b>ATL</b></span>
       </Link>
       <nav className="desktop-nav" aria-label="Main menu">
-        <Link href="/#buy">Buy</Link>
-        <Link href="/#sell">Sell</Link>
-        <Link href="/listings">Listings</Link>
-        <Link href="/articles">Articles</Link>
+        <Link href="/">Home Page</Link>
+        <Link href="/listings">Houses For Sale</Link>
+        <Link href="/sell-your-home">Sell Your Home</Link>
         <Link href="/contact">Contact</Link>
+        <Link href="/articles">Articles</Link>
       </nav>
-      <a className="button button-small button-dark" href={calendlyUrl} target="_blank" rel="noreferrer">Book with Bobby <span aria-hidden="true">↗</span></a>
+      <div className="header-socials" aria-label="Social links">
+        <a href={instagramUrl} target="_blank" rel="noreferrer">Instagram</a>
+        <a href={facebookUrl} target="_blank" rel="noreferrer">Facebook</a>
+      </div>
     </header>
   );
 }
@@ -39,13 +42,33 @@ export function SiteFooter() {
         <Link className="wordmark" href="/"><BrandMark /><span>Pickel Sells <b>ATL</b></span></Link>
         <p>Atlanta real estate, rooted in trust.</p>
         <div className="footer-links">
+          <a className="text-link" href={instagramUrl} target="_blank" rel="noreferrer">Instagram</a>
+          <a className="text-link" href={facebookUrl} target="_blank" rel="noreferrer">Facebook</a>
+          <a className="text-link" href={bobbyPhoneHref}>Call/Text {bobbyPhoneDisplay}</a>
           <Link className="text-link" href="/privacy-policy">Privacy</Link>
           <Link className="text-link" href="/terms-of-service">Terms</Link>
           <Link className="text-link" href="/cookies">Cookies</Link>
-          <a className="text-link" href={calendlyUrl} target="_blank" rel="noreferrer">Book <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </footer>
+  );
+}
+
+export function ContactActions({ compact = false }: { compact?: boolean }) {
+  return (
+    <div className={`contact-actions ${compact ? "contact-actions-compact" : ""}`} aria-label="Contact Bobby">
+      <a className="button button-accent" href={calendlyUrl} target="_blank" rel="noreferrer">Book a call <span aria-hidden="true">↗</span></a>
+      <a className="button button-dark" href={bobbyPhoneHref}>Call/Text Bobby <span>{bobbyPhoneDisplay}</span></a>
+    </div>
+  );
+}
+
+export function StickyContactBar() {
+  return (
+    <div className="sticky-contact-bar" aria-label="Quick contact actions">
+      <a className="sticky-action sticky-book" href={calendlyUrl} target="_blank" rel="noreferrer">Book a Call</a>
+      <a className="sticky-action sticky-call" href={bobbyPhoneHref}>Call/Text Bobby</a>
+    </div>
   );
 }
 

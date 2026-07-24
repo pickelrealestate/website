@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { SiteFooter, SiteHeader } from "../components";
-import { calendlyUrl, featuredListing, listingImage, listingPhotos } from "../site-data";
+import { ContactActions, SiteFooter, SiteHeader, StickyContactBar } from "../components";
+import { bobbyPhoneHref, calendlyUrl, featuredListing, listingImage, listingPhotos } from "../site-data";
 
 export const metadata: Metadata = {
   title: "Atlanta Listings With Bobby | Pickel Sells ATL",
@@ -18,7 +18,10 @@ export default function ListingsPage() {
           <p className="eyebrow">Most recent featured listing</p>
           <h1>{featuredListing.title}</h1>
           <p className="hero-lede page-lede">{featuredListing.summary}</p>
-          <a className="button button-accent" href={calendlyUrl} target="_blank" rel="noreferrer">Book a private tour <span aria-hidden="true">↗</span></a>
+          <div className="button-row">
+            <a className="button button-accent" href={calendlyUrl} target="_blank" rel="noreferrer">Book a private tour <span aria-hidden="true">↗</span></a>
+            <a className="text-link" href={bobbyPhoneHref}>Call/Text Bobby <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
         <figure className="page-image">
           <Image src={listingImage(listingPhotos[0].file)} alt={listingPhotos[0].alt} fill priority sizes="(max-width: 860px) 100vw, 48vw" />
@@ -51,10 +54,11 @@ export default function ListingsPage() {
         <div className="shell conversion-inner">
           <h2>Want to buy this home, sell yours, or compare both paths?</h2>
           <p>Bobby can help with buying and selling. Start with the call that makes the decision easier.</p>
-          <a className="button button-accent" href={calendlyUrl} target="_blank" rel="noreferrer">Book with Bobby <span aria-hidden="true">↗</span></a>
+          <ContactActions compact />
         </div>
       </section>
       <SiteFooter />
+      <StickyContactBar />
     </main>
   );
 }

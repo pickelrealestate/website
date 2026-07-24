@@ -1,37 +1,24 @@
-"use client";
-
-import { FormEvent, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { BrandMark, SiteFooter, SiteHeader } from "./components";
-import { articles, calendlyUrl, featuredListing, listingImage, listingPhotos } from "./site-data";
+import { BrandMark, ContactActions, SiteFooter, SiteHeader, StickyContactBar } from "./components";
+import { articles, bobbyPhoneHref, calendlyUrl, featuredListing, listingImage, listingPhotos } from "./site-data";
 
 const moments = [
   {
     title: "Real estate is like a tree",
     copy: "Trust, consistency, and patience are the roots.",
-    poster: `/images/listing/${encodeURIComponent("Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat.jpg")}`,
   },
   {
     title: "Find the nest",
     copy: "Some people chase birdies. Bobby helps people find home.",
-    poster: `/images/listing/${encodeURIComponent("Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (1).jpg")}`,
   },
   {
     title: "A great home is close",
     copy: "Inner peace is priceless. A smart move helps, too.",
-    poster: `/images/listing/${encodeURIComponent("Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (12).jpg")}`,
   },
 ];
 
 export default function Home() {
-  const [formSent, setFormSent] = useState(false);
-
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setFormSent(true);
-  }
-
   return (
     <main>
       <a className="skip-link" href="#main-content">Skip to main content</a>
@@ -63,8 +50,8 @@ export default function Home() {
           <h1 id="hero-heading">Buy or sell a home with someone who knows the way home.</h1>
           <p className="hero-lede">Bobby Pickel brings a steady hand, local perspective, and a real path to the next step, whether that means a private showing, a buyer consult, or a plan to sell well.</p>
           <div className="hero-actions">
-            <a className="button button-accent" href={calendlyUrl} target="_blank" rel="noreferrer">Book a private showing <span aria-hidden="true">↗</span></a>
-            <a className="text-link text-link-light" href={calendlyUrl} target="_blank" rel="noreferrer">Schedule a buyer or seller call <span aria-hidden="true">↗</span></a>
+            <a className="button button-accent" href={calendlyUrl} target="_blank" rel="noreferrer">Book a call <span aria-hidden="true">↗</span></a>
+            <a className="text-link text-link-light" href={bobbyPhoneHref}>Call/Text Bobby <span aria-hidden="true">↗</span></a>
           </div>
           <div className="hero-proof" aria-label="Bobby's approach">
             <span>Buy with a plan</span><span>Sell with clarity</span><span>Book in one step</span>
@@ -80,7 +67,7 @@ export default function Home() {
           <p className="lead-copy">Real estate can feel loud. Bobby keeps it clear: listen first, know the details, and help you make the decision that fits your life—not someone else’s timeline.</p>
           <div className="button-row">
             <a className="text-link" href="#about">Get to know Bobby <span aria-hidden="true">↗</span></a>
-            <a className="text-link" href="#contact">See what happens next <span aria-hidden="true">↗</span></a>
+            <Link className="text-link" href="/sell-your-home">Sell your home <span aria-hidden="true">↗</span></Link>
           </div>
         </div>
       </section>
@@ -89,7 +76,7 @@ export default function Home() {
         <div><strong>1</strong><span>call to get clear</span></div>
         <div><strong>3</strong><span>next-step paths: buy, sell, or tour</span></div>
         <div><strong>7</strong><span>bedroom featured home kept current</span></div>
-        <div><strong>100%</strong><span>conversation-first guidance</span></div>
+        <div><strong>0</strong><span>pressure before you are ready</span></div>
       </section>
 
       <section className="pathways section" id="buy" aria-labelledby="pathways-heading">
@@ -99,15 +86,15 @@ export default function Home() {
             <p className="heading-note">One clear next step is better than a dozen open tabs.</p>
           </div>
           <div className="path-grid">
-            <a className="path-card path-buy" href={calendlyUrl} target="_blank" rel="noreferrer">
+            <article className="path-card path-buy">
               <span className="path-number">01</span><h3>Buying in Atlanta</h3><p>Book a buyer consult and narrow the homes, neighborhoods, and timing that fit your next move.</p><span className="path-arrow" aria-hidden="true">↗</span>
-            </a>
-            <a className="path-card path-sell" href={calendlyUrl} target="_blank" rel="noreferrer" id="sell">
+            </article>
+            <article className="path-card path-sell" id="sell">
               <span className="path-number">02</span><h3>Selling with clarity</h3><p>Book a strategy call, understand your options, and move forward with a thoughtful pricing and prep plan.</p><span className="path-arrow" aria-hidden="true">↗</span>
-            </a>
-            <a className="path-card path-watch" href="/listings">
+            </article>
+            <Link className="path-card path-watch" href="/listings">
               <span className="path-number">03</span><h3>Love this listing?</h3><p>See the home details, then request a private tour while it is still fresh on your mind.</p><span className="path-arrow" aria-hidden="true">↗</span>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -119,7 +106,7 @@ export default function Home() {
           <p>{featuredListing.summary}</p>
           <div className="button-row">
             <a className="button button-dark" href={calendlyUrl} target="_blank" rel="noreferrer">Book a private tour <span aria-hidden="true">↗</span></a>
-            <Link className="text-link" href="/listings">See listing page <span aria-hidden="true">↗</span></Link>
+            <a className="text-link" href={bobbyPhoneHref}>Call/Text Bobby <span aria-hidden="true">↗</span></a>
           </div>
         </div>
         <div className="listing-aside">
@@ -162,7 +149,7 @@ export default function Home() {
             {moments.map((moment, index) => (
               <article className="video-card" key={moment.title}>
                 <div className="video-frame">
-                  <video controls preload="metadata" playsInline poster={moment.poster} aria-label={`${moment.title} video from Bobby`}>
+                  <video controls preload="metadata" playsInline aria-label={`${moment.title} video from Bobby`}>
                     <source src={`/videos/${["Real estate is like a tree, everything starts with strong roots. Trust, consistency, and patienc.mp4", "Some people chase birdies. I help people find the nest..mp4", "Inner peace is priceless, but a great home at a great price is pretty close. If you’re buying, s.mp4"][index]}`} type="video/mp4" />
                   </video>
                   <span className="video-index">0{index + 1}</span>
@@ -192,7 +179,7 @@ export default function Home() {
             </li>
           </ul>
         </div>
-        <div className="about-copy"><p className="eyebrow">The person behind the process</p><h2 id="about-heading">A real estate relationship should feel like a relationship.</h2><p>Bobby believes the best work starts by being present: asking better questions, noticing what matters, and staying in the room when the details get complicated.</p><p>Whether you’re buying your first place, selling a home full of memories, or reaching out because this featured home caught your eye, you deserve guidance that feels direct, personal, and easy to trust.</p><a className="text-link" href={calendlyUrl} target="_blank" rel="noreferrer">Meet Bobby in a conversation <span aria-hidden="true">↗</span></a></div>
+        <div className="about-copy"><p className="eyebrow">The person behind the process</p><h2 id="about-heading">A real estate relationship should feel like a relationship.</h2><p>Bobby believes the best work starts by being present: asking better questions, noticing what matters, and staying in the room when the details get complicated.</p><p>Whether you’re buying your first place, selling a home full of memories, or reaching out because this featured home caught your eye, you deserve guidance that feels direct, personal, and easy to trust.</p><ContactActions compact /></div>
       </section>
 
       <section className="articles-preview section shell" aria-labelledby="articles-heading">
@@ -224,35 +211,16 @@ export default function Home() {
       <section className="contact section" id="contact" aria-labelledby="contact-heading">
         <div className="shell contact-grid">
           <div className="contact-copy"><p className="eyebrow eyebrow-light">Let’s make it simple</p><h2 id="contact-heading">Book a showing or strategy call with Bobby.</h2><p>Use Bobby’s calendar for a private tour, a buyer consult, or a seller strategy conversation. The goal is to help you get one clear next step on the calendar.</p><div className="contact-choices" aria-label="Booking options"><span>Private home tour</span><span>Buyer consult</span><span>Seller strategy call</span></div><div className="contact-note"><span className="contact-mark"><BrandMark /></span><span>Pickel Sells ATL<br /><small>Atlanta area real estate</small></span></div></div>
-          <form className="contact-form" onSubmit={handleSubmit} aria-describedby="form-note">
-            <div className="form-row"><label htmlFor="name">Your name</label><input id="name" name="name" autoComplete="name" required placeholder="First and last name" /></div>
-            <div className="form-row"><label htmlFor="contact-method">Best way to reach you</label><input id="contact-method" name="contact-method" autoComplete="email" required placeholder="Phone or email" /></div>
-            <div className="form-row form-row-split">
-              <div>
-                <label htmlFor="goal">What are you booking?</label>
-                <select id="goal" name="goal" defaultValue="">
-                  <option value="" disabled>Select one</option>
-                  <option>Private showing for the featured home</option>
-                  <option>Buyer consultation</option>
-                  <option>Seller strategy call</option>
-                  <option>Exploring my options</option>
-                </select>
-              </div>
-              <div>
-                <label htmlFor="timing">Best timing</label>
-                <input id="timing" name="timing" autoComplete="off" placeholder="This week, weekend, evenings..." />
-              </div>
-            </div>
-            <div className="form-row"><label htmlFor="message">A little context <span>(optional)</span></label><textarea id="message" name="message" rows={3} placeholder="Neighborhood, timing, or what you want Bobby to help you decide" /></div>
-            <button className="button button-accent button-submit" type="submit">Request a booking with Bobby <span aria-hidden="true">↗</span></button>
-            <a className="text-link calendar-direct" href={calendlyUrl} target="_blank" rel="noreferrer">Open Bobby’s live calendar <span aria-hidden="true">↗</span></a>
-            <p className="form-note" id="form-note" aria-live="polite">{formSent ? "Thanks. Use Bobby’s live calendar to lock in the best available time now." : "Prefer instant scheduling? Open Bobby’s calendar after sharing context or go straight there."}</p>
-          </form>
+          <div className="contact-panel">
+            <h3>Two clean ways to reach him.</h3>
+            <p>Book a call when you want a set time. Call or text when the question is simple and you just need Bobby directly.</p>
+            <ContactActions />
+          </div>
         </div>
       </section>
 
       <SiteFooter />
-      <a className="floating-cta" href={calendlyUrl} target="_blank" rel="noreferrer" aria-label="Book a showing or strategy call with Bobby"><span className="floating-dot" /> Book with Bobby</a>
+      <StickyContactBar />
     </main>
   );
 }

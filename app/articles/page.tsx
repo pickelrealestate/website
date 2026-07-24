@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { SiteFooter, SiteHeader } from "../components";
-import { articles, calendlyUrl } from "../site-data";
+import { ContactActions, SiteFooter, SiteHeader, StickyContactBar } from "../components";
+import { articles, bobbyPhoneHref, calendlyUrl } from "../site-data";
 
 export const metadata: Metadata = {
   title: "Atlanta Real Estate Articles | Pickel Sells ATL",
@@ -32,7 +32,7 @@ export default function ArticlesPage() {
           <p className="eyebrow">Atlanta real estate articles</p>
           <h1>Clear answers before the big decision.</h1>
           <p className="hero-lede page-lede">Readable guidance for buyers, sellers, and anyone deciding what the next move should be in Atlanta real estate.</p>
-          <a className="button button-accent" href={calendlyUrl} target="_blank" rel="noreferrer">Ask Bobby directly <span aria-hidden="true">↗</span></a>
+          <ContactActions compact />
         </div>
       </section>
 
@@ -43,11 +43,15 @@ export default function ArticlesPage() {
             <h2>{article.title}</h2>
             <p className="lead-copy">{article.excerpt}</p>
             {articleBodies[article.slug].map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-            <a className="text-link" href={calendlyUrl} target="_blank" rel="noreferrer">Book a call about this <span aria-hidden="true">↗</span></a>
+            <div className="button-row">
+              <a className="text-link" href={calendlyUrl} target="_blank" rel="noreferrer">Book a call about this <span aria-hidden="true">↗</span></a>
+              <a className="text-link" href={bobbyPhoneHref}>Call/Text Bobby <span aria-hidden="true">↗</span></a>
+            </div>
           </article>
         ))}
       </section>
       <SiteFooter />
+      <StickyContactBar />
     </main>
   );
 }

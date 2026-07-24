@@ -16,7 +16,7 @@ export default function TermsPage() {
         <h2>Scheduling</h2>
         <p>Booking a call or tour does not create an agency relationship by itself. Any formal representation terms should be reviewed separately in writing.</p>
         <h2>Acceptable use</h2>
-        <p>Do not misuse the website, submit false information, or interfere with the site’s operation.</p>
+        <p>Do not misuse the website, interfere with the site’s operation, or use the contact links for spam or abusive messages.</p>
       </section>
       <SiteFooter />
     </main>

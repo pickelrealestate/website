@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { BobbyPortrait, CalendlyInline, SiteFooter, SiteHeader } from "../components";
-import { calendlyCleanUrl } from "../site-data";
+import { BobbyPortrait, CalendlyInline, ContactActions, SiteFooter, SiteHeader, StickyContactBar } from "../components";
+import { bobbyPhoneDisplay, calendlyCleanUrl, facebookUrl, instagramUrl } from "../site-data";
 
 export const metadata: Metadata = {
   title: "Contact Bobby Pickel | Pickel Sells ATL",
@@ -17,7 +17,13 @@ export default function ContactPage() {
           <p className="eyebrow">Contact Bobby</p>
           <h1>Book the call that makes the next move simple.</h1>
           <p className="hero-lede page-lede">Buying a house, selling a house, or figuring out which should happen first? Bobby can help with both sides of the move.</p>
+          <ContactActions compact />
           <p className="direct-url">Direct booking link: <a href={calendlyCleanUrl}>{calendlyCleanUrl}</a></p>
+          <p className="direct-url">Call or text Bobby: <strong>{bobbyPhoneDisplay}</strong></p>
+          <div className="social-row" aria-label="Bobby's social profiles">
+            <a href={instagramUrl} target="_blank" rel="noreferrer">Instagram</a>
+            <a href={facebookUrl} target="_blank" rel="noreferrer">Facebook</a>
+          </div>
         </div>
         <BobbyPortrait />
       </section>
@@ -25,6 +31,7 @@ export default function ContactPage() {
         <CalendlyInline />
       </section>
       <SiteFooter />
+      <StickyContactBar />
     </main>
   );
 }
