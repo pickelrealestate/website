@@ -15,9 +15,9 @@ test.describe("WCAG 2.1 AA accessibility", () => {
   test("primary actions and form fields are keyboard reachable", async ({ page }) => {
     await page.goto("/");
     await expect(page).toHaveTitle("Atlanta Real Estate With Bobby | Pickel Sells ATL");
-    await expect(page.getByRole("heading", { name: "Tell Bobby what home means to you." })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Book a showing or strategy call with Bobby." })).toBeVisible();
     await expect(page.getByLabel("Your name")).toBeVisible();
-    await expect(page.getByRole("button", { name: /Send a note to Bobby/ })).toBeVisible();
+    await expect(page.getByRole("button", { name: /Request a booking with Bobby/ })).toBeVisible();
   });
 
   test("hero portrait and listing gallery images load", async ({ page }) => {

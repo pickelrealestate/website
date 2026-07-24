@@ -5,7 +5,7 @@ import test from "node:test";
 test("keeps the Next.js page experience intact", async () => {
   const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
   assert.match(page, /Buy or sell a home with someone who knows the way home/);
-  assert.match(page, /Tell Bobby what home means to you/);
+  assert.match(page, /Book a showing or strategy call with Bobby/);
   assert.match(page, /Skip to main content/);
 });
 

@@ -72,9 +72,21 @@ const listingPhotos = [
 ];
 
 const moments = [
-  ["Real estate is like a tree", "Trust, consistency, and patience are the roots."],
-  ["Find the nest", "Some people chase birdies. Bobby helps people find home."],
-  ["A great home is close", "Inner peace is priceless. A smart move helps, too."],
+  {
+    title: "Real estate is like a tree",
+    copy: "Trust, consistency, and patience are the roots.",
+    poster: `/images/listing/${encodeURIComponent("Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat.jpg")}`,
+  },
+  {
+    title: "Find the nest",
+    copy: "Some people chase birdies. Bobby helps people find home.",
+    poster: `/images/listing/${encodeURIComponent("Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (1).jpg")}`,
+  },
+  {
+    title: "A great home is close",
+    copy: "Inner peace is priceless. A smart move helps, too.",
+    poster: `/images/listing/${encodeURIComponent("Come check out this beautiful home! 7 bed 4 bath and over 4,300 sq feet! Message me for a privat (12).jpg")}`,
+  },
 ];
 
 function BrandMark() {
@@ -110,7 +122,7 @@ export default function Home() {
           <a href="#listing">Featured home</a>
           <a href="#about">About Bobby</a>
         </nav>
-        <a className="button button-small button-dark" href="#contact">Talk with Bobby <span aria-hidden="true">↗</span></a>
+        <a className="button button-small button-dark" href="#contact">Book with Bobby <span aria-hidden="true">↗</span></a>
       </header>
 
       <section className="hero" id="top" aria-labelledby="hero-heading">
@@ -136,13 +148,13 @@ export default function Home() {
           </div>
           <p className="eyebrow eyebrow-light"><span className="eyebrow-dot" /> Atlanta real estate, made personal</p>
           <h1 id="hero-heading">Buy or sell a home with someone who knows the way home.</h1>
-          <p className="hero-lede">Bobby Pickel brings a steady hand, local perspective, and a real conversation to every Atlanta move.</p>
+          <p className="hero-lede">Bobby Pickel brings a steady hand, local perspective, and a real path to the next step, whether that means a private showing, a buyer consult, or a plan to sell well.</p>
           <div className="hero-actions">
-            <a className="button button-accent" href="#contact">Start a conversation <span aria-hidden="true">↗</span></a>
-            <a className="text-link text-link-light" href="#listing">See the featured home <span aria-hidden="true">↓</span></a>
+            <a className="button button-accent" href="#contact">Book a private showing <span aria-hidden="true">↗</span></a>
+            <a className="text-link text-link-light" href="#contact">Schedule a buyer consult <span aria-hidden="true">↗</span></a>
           </div>
           <div className="hero-proof" aria-label="Bobby's approach">
-            <span>Atlanta area</span><span>Buy + sell</span><span>No-pressure guidance</span>
+            <span>Atlanta area</span><span>Private showings</span><span>Buyer + seller consults</span>
           </div>
         </div>
         <div className="hero-note" aria-hidden="true"><span>01</span><span>Rooted in Atlanta</span></div>
@@ -165,13 +177,13 @@ export default function Home() {
           </div>
           <div className="path-grid">
             <a className="path-card path-buy" href="#contact">
-              <span className="path-number">01</span><h3>Buying in Atlanta</h3><p>Find a home that fits your days, your budget, and the life you’re building next.</p><span className="path-arrow" aria-hidden="true">↗</span>
+              <span className="path-number">01</span><h3>Buying in Atlanta</h3><p>Book a buyer consult and narrow the homes, neighborhoods, and timing that fit your next move.</p><span className="path-arrow" aria-hidden="true">↗</span>
             </a>
             <a className="path-card path-sell" href="#contact" id="sell">
-              <span className="path-number">02</span><h3>Selling with clarity</h3><p>Understand your options, prepare your home, and move forward with a thoughtful plan.</p><span className="path-arrow" aria-hidden="true">↗</span>
+              <span className="path-number">02</span><h3>Selling with clarity</h3><p>Book a strategy call, understand your options, and move forward with a thoughtful pricing and prep plan.</p><span className="path-arrow" aria-hidden="true">↗</span>
             </a>
-            <a className="path-card path-watch" href="#videos">
-              <span className="path-number">03</span><h3>Just getting curious?</h3><p>Start with Bobby’s take on homes, patience, and what makes a place feel like yours.</p><span className="path-arrow" aria-hidden="true">↗</span>
+            <a className="path-card path-watch" href="#listing">
+              <span className="path-number">03</span><h3>Love this listing?</h3><p>See the home details, then request a private tour while it is still fresh on your mind.</p><span className="path-arrow" aria-hidden="true">↗</span>
             </a>
           </div>
         </div>
@@ -181,11 +193,22 @@ export default function Home() {
         <div className="listing-intro">
           <p className="eyebrow">Featured listing</p>
           <h2 id="listing-heading">Space to spread out.<br /><em>Room to grow into.</em></h2>
-          <p>Take a closer look at this Atlanta-area home: 7 bedrooms, 4 baths, and more than 4,300 square feet—plus the kind of tree-lined setting that makes a house feel grounded.</p>
-          <a className="button button-dark" href="#contact">Ask about this home <span aria-hidden="true">↗</span></a>
+          <p>Take a closer look at this Atlanta-area home: 7 bedrooms, 4 baths, and more than 4,300 square feet, plus the kind of tree-lined setting that gives a private showing real staying power.</p>
+          <a className="button button-dark" href="#contact">Book a private tour <span aria-hidden="true">↗</span></a>
         </div>
-        <div className="listing-stats" aria-label="Featured listing facts">
-          <div><strong>7</strong><span>Bedrooms</span></div><div><strong>4</strong><span>Bathrooms</span></div><div><strong>4,300+</strong><span>Square feet</span></div>
+        <div className="listing-aside">
+          <div className="listing-stats" aria-label="Featured listing facts">
+            <div><strong>7</strong><span>Bedrooms</span></div><div><strong>4</strong><span>Bathrooms</span></div><div><strong>4,300+</strong><span>Square feet</span></div>
+          </div>
+          <div className="booking-card" aria-label="How to book this listing">
+            <p className="booking-kicker">Best next step</p>
+            <h3>Request this home before someone else does.</h3>
+            <ol className="booking-steps">
+              <li>Choose “Viewing the featured home” in the form below.</li>
+              <li>Share your timing and best contact method.</li>
+              <li>Bobby can follow up to set a private tour or answer your first questions.</li>
+            </ol>
+          </div>
         </div>
         <div className="gallery" aria-label="Featured home photo gallery">
           {listingPhotos.map((photo, index) => (
@@ -210,15 +233,15 @@ export default function Home() {
             <p className="heading-note">A few words from Bobby about the part of real estate that doesn’t show up on a listing sheet.</p>
           </div>
           <div className="video-grid">
-            {moments.map(([title, copy], index) => (
-              <article className="video-card" key={title}>
+            {moments.map((moment, index) => (
+              <article className="video-card" key={moment.title}>
                 <div className="video-frame">
-                  <video controls preload="metadata" playsInline poster="/images/stock/peaceful-suburban-neighborhood-with-large-trees-shading-family-homes-photo.webp" aria-label={`${title} video from Bobby`}>
+                  <video controls preload="metadata" playsInline poster={moment.poster} aria-label={`${moment.title} video from Bobby`}>
                     <source src={`/videos/${["Real estate is like a tree, everything starts with strong roots. Trust, consistency, and patienc.mp4", "Some people chase birdies. I help people find the nest..mp4", "Inner peace is priceless, but a great home at a great price is pretty close. If you’re buying, s.mp4"][index]}`} type="video/mp4" />
                   </video>
                   <span className="video-index">0{index + 1}</span>
                 </div>
-                <h3>{title}</h3><p>{copy}</p>
+                <h3>{moment.title}</h3><p>{moment.copy}</p>
               </article>
             ))}
           </div>
@@ -258,20 +281,35 @@ export default function Home() {
 
       <section className="contact section" id="contact" aria-labelledby="contact-heading">
         <div className="shell contact-grid">
-          <div className="contact-copy"><p className="eyebrow eyebrow-light">Let’s make it simple</p><h2 id="contact-heading">Tell Bobby what home means to you.</h2><p>No pitch. No pressure. Just a useful first conversation about buying, selling, or finding your next move in Atlanta.</p><div className="contact-note"><span className="contact-mark"><BrandMark /></span><span>Pickel Sells ATL<br /><small>Atlanta area real estate</small></span></div></div>
+          <div className="contact-copy"><p className="eyebrow eyebrow-light">Let’s make it simple</p><h2 id="contact-heading">Book a showing or strategy call with Bobby.</h2><p>Use this quick form to request a private tour, a buyer consult, or a seller strategy conversation. The goal is to help you get one clear next step on the calendar.</p><div className="contact-choices" aria-label="Booking options"><span>Private home tour</span><span>Buyer consult</span><span>Seller strategy call</span></div><div className="contact-note"><span className="contact-mark"><BrandMark /></span><span>Pickel Sells ATL<br /><small>Atlanta area real estate</small></span></div></div>
           <form className="contact-form" onSubmit={handleSubmit} aria-describedby="form-note">
             <div className="form-row"><label htmlFor="name">Your name</label><input id="name" name="name" autoComplete="name" required placeholder="First and last name" /></div>
             <div className="form-row"><label htmlFor="contact-method">Best way to reach you</label><input id="contact-method" name="contact-method" autoComplete="email" required placeholder="Phone or email" /></div>
-            <div className="form-row"><label htmlFor="goal">What can Bobby help with?</label><select id="goal" name="goal" defaultValue=""><option value="" disabled>Select one</option><option>Buying a home</option><option>Selling a home</option><option>Exploring my options</option><option>Viewing the featured home</option></select></div>
-            <div className="form-row"><label htmlFor="message">A little context <span>(optional)</span></label><textarea id="message" name="message" rows={3} placeholder="Neighborhood, timing, or anything else you want Bobby to know" /></div>
-            <button className="button button-accent button-submit" type="submit">Send a note to Bobby <span aria-hidden="true">↗</span></button>
-            <p className="form-note" id="form-note" aria-live="polite">{formSent ? "Thanks — Bobby’s next step is a real conversation. Your note is ready to be connected to the contact inbox." : "Your information stays between you and Bobby."}</p>
+            <div className="form-row form-row-split">
+              <div>
+                <label htmlFor="goal">What are you booking?</label>
+                <select id="goal" name="goal" defaultValue="">
+                  <option value="" disabled>Select one</option>
+                  <option>Private showing for the featured home</option>
+                  <option>Buyer consultation</option>
+                  <option>Seller strategy call</option>
+                  <option>Exploring my options</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor="timing">Best timing</label>
+                <input id="timing" name="timing" autoComplete="off" placeholder="This week, weekend, evenings..." />
+              </div>
+            </div>
+            <div className="form-row"><label htmlFor="message">A little context <span>(optional)</span></label><textarea id="message" name="message" rows={3} placeholder="Neighborhood, timing, or what you want Bobby to help you decide" /></div>
+            <button className="button button-accent button-submit" type="submit">Request a booking with Bobby <span aria-hidden="true">↗</span></button>
+            <p className="form-note" id="form-note" aria-live="polite">{formSent ? "Thanks. Your request is ready for Bobby to follow up and lock in the next step." : "Share the best timing and Bobby can turn this into a real next-step conversation."}</p>
           </form>
         </div>
       </section>
 
-      <footer className="site-footer"><div className="shell footer-inner"><a className="wordmark" href="#top"><BrandMark /><span>Pickel Sells <b>ATL</b></span></a><p>Atlanta real estate, rooted in trust.</p><a className="text-link" href="#contact">Start here <span aria-hidden="true">↗</span></a></div></footer>
-      <a className="floating-cta" href="#contact" aria-label="Start a conversation with Bobby"><span className="floating-dot" /> Talk with Bobby</a>
+      <footer className="site-footer"><div className="shell footer-inner"><a className="wordmark" href="#top"><BrandMark /><span>Pickel Sells <b>ATL</b></span></a><p>Atlanta real estate, rooted in trust.</p><a className="text-link" href="#contact">Book your next step <span aria-hidden="true">↗</span></a></div></footer>
+      <a className="floating-cta" href="#contact" aria-label="Book a showing or strategy call with Bobby"><span className="floating-dot" /> Book with Bobby</a>
     </main>
   );
 }
