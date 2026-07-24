@@ -190,3 +190,17 @@ h3 { font-size: 20px; line-height: 1.15; }
   .sticky-contact-bar { inset-inline: 10px; bottom: 10px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .sticky-action { position: static; min-height: 48px; padding: 11px 10px; font-size: 12px; text-align: center; box-shadow: 0 6px 14px oklch(0.18 0.025 262 / .18); }
 }
+
+.video-grid { align-items: start; }
+.video-frame { aspect-ratio: 9 / 16; max-height: 620px; background: oklch(0.1 0.035 262); }
+.video-frame video { object-fit: contain; background: oklch(0.1 0.035 262); }
+.video-card { max-width: 380px; margin-inline: auto; }
+@media (max-width: 860px) {
+  .video-grid { gap: 42px; }
+  .video-card { width: min(100%, 390px); }
+  .video-frame { max-height: 680px; }
+}
+@media (max-width: 520px) {
+  .video-card { width: min(100%, 330px); }
+  .video-frame { max-height: 590px; }
+}
